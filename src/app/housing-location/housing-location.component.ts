@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { HousingLocationInterface } from '../housing-location.interface';
 
 @Component({
   selector: 'app-housing-location',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   template: `
     <p>
       housing-location works!
@@ -12,5 +14,6 @@ import { Component } from '@angular/core';
   styles: ``
 })
 export class HousingLocationComponent {
+  @Input() housingLocationInterface!: HousingLocationInterface;
 
 }
