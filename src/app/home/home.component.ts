@@ -15,11 +15,12 @@ import { HousingLocationInterface } from '../housing-location.interface';
       </form>
     </section>
     <section class="results">
-      <app-housing-location></app-housing-location>
+      <app-housing-location [housingLocationInterface]="housingLocationInterface"]></app-housing-location>
     </section>
   `,
   styleUrls: ['./home.component.css'],
 })
+
 export class HomeComponent {
   readonly baseUrl = 'https://angular.dev/assets/tutorials/common';
 
@@ -33,5 +34,4 @@ export class HomeComponent {
     wifi: true,
     laundry: false,
   }
-
 }
