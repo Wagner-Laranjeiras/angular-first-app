@@ -15,12 +15,12 @@ import { HousingService } from '../housing.service';
     <section>
       <form>
         <input type="text" placeholder="Filter by city" #filter/>
-        <button class="primary" type="button">Search</button>
+        <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
       </form>
     </section>
     <section class="results">
       <app-housing-location 
-        *ngFor="let housingLocation of housingLocationList"
+        *ngFor="let housingLocation of filteredLocationList"
         [housingLocation]="housingLocation">
       </app-housing-location>
     </section>
@@ -42,6 +42,16 @@ export class HomeComponent {
         this.filteredLocationList = this.housingLocationList;
         return;
       }
+
+      this.filteredLocationList = this.housingLocationList.filter(
+        (housingLocation) => housingLocation?.city.toLowerCase().includes(text.toLowerCase()),
+      );
+    }
+  }
     }
   }
 }
+function filterResults(text: any, string: any) {
+  throw new Error('Function not implemented.');
+}
+
