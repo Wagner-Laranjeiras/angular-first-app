@@ -15,7 +15,7 @@ import { HousingService } from '../housing.service';
     <section>
       <form>
         <input type="text" placeholder="Filter by city" #filter/>
-        <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
+        <button class="primary" type="button" (click)="filterResults( filter.value )">Search</button>
       </form>
     </section>
     <section class="results">
@@ -31,27 +31,22 @@ import { HousingService } from '../housing.service';
 export class HomeComponent {
   housingLocationList: HousingLocationInterface[] = [];
   housingService: HousingService = inject( HousingService );
-
   filteredLocationList: HousingLocationInterface[] = [];
+
   constructor() {
     this.housingLocationList = this.housingService.getAllHousingLocations();
     this.filteredLocationList = this.housingLocationList;
-
-    filterResults(text: string) {
-      if ( !text ) {
-        this.filteredLocationList = this.housingLocationList;
-        return;
-      }
-
-      this.filteredLocationList = this.housingLocationList.filter(
-        (housingLocation) => housingLocation?.city.toLowerCase().includes(text.toLowerCase()),
-      );
-    }
   }
+
+  filterResults(text: string) {
+    if ( ! text ) {
+      this.filteredLocationList = this.housingLocationList;
+      return;
     }
+
+    this.filteredLocationList = this.housingLocationList.filter(
+    ( housingLocation ) => housingLocation?.city.toLowerCase().includes( text.toLowerCase() ),
+    );
   }
-}
-function filterResults(text: any, string: any) {
-  throw new Error('Function not implemented.');
 }
 
