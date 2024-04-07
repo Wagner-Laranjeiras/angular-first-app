@@ -48,7 +48,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
       </section>
     </article>
   `,
-  styleUrls: ['./details.component.css'],
+  styleUrls: [ './details.component.css' ],
 })
 
 export class DetailsComponent {
@@ -63,8 +63,8 @@ export class DetailsComponent {
   });
 
   constructor() {
-    const housingLocationId = parseInt( this.route.snapshot.params[ 'id' ], 10);
-    this.housingService.getHousingLocationById( housingLocationId ).then( (housingLocation) => {
+    const housingLocationId = parseInt( this.route.snapshot.params[ 'id' ], 10 );
+    this.housingService.getHousingLocationById( housingLocationId ).then( ( housingLocation ) => {
       this.housingLocation = housingLocation
     });
   }
